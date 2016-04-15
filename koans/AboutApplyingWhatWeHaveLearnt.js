@@ -110,32 +110,49 @@ describe("About Applying What We Have Learnt", function() {
   /* UNCOMMENT FOR ADVANCED */
   
   it("should find the largest prime factor of a composite number", function () {
-
+    
     var LargestPrimeFactor = function (number) {
       var LargestPrimeFactor = [];
-      if (number % 2 !== 0) {
-        return "not a composite number" ;
-      } else {
-        for (var i = 2; i <= number/i; i++) {
-          while(number % i === 0) {
-            number = number/i;
-            LargestPrimeFactor.push(i);
-          }
+      for (var i = 2; i <= number; i++) {
+        while(number % i === 0) {
+          number = number/i;
+          LargestPrimeFactor.push(i);
         }
       }
-      return _.reduce(LargestPrimeFactor, function(prev,curr) {
-        return prev > curr ? prev: curr;
-      });
+      if (LargestPrimeFactor === []) {
+        return number;
+      } else {
+        return _.max(LargestPrimeFactor);
+      }
     }
-
-    expect(LargestPrimeFactor(72)).toBe(3);
-    expect(LargestPrimeFactor(101)).toBe("not a composite number");
-  
+    //expect(LargestPrimeFactor(10986232)).toBe(8747);
+    expect(LargestPrimeFactor(36)).toBe(3);
   });
 
-  // it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
+  it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
+
+    // var LargestPalindrome = function(a,b) {
+    //   if(a.toString().length === 3 && b.toString().length === 3) {
+    //     var product = a * b;
+        
+    //     var arrayofproducts = _.range(1, product).reverse();
+    //     var result = 0
+
+    //     return _.reduce(arrayofproducts, function(prev, curr) {
+    //       if (prev) {
+    //         if (curr.toString() === curr.toString().split("").reverse().join()) {
+    //           result = curr;
+    //           prev = false;
+    //         }
+    //       }
+    //     }, true)
+    //     return result;
+    //   }
+    // }
     
-  // });
+    // expect(LargestPalindrome(100,200)).toBe(111111)
+
+  });
 
   // it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
       
