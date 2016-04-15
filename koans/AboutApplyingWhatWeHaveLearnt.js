@@ -108,26 +108,46 @@ describe("About Applying What We Have Learnt", function() {
 
   /*********************************************************************************/
   /* UNCOMMENT FOR ADVANCED */
-  /*
+  
   it("should find the largest prime factor of a composite number", function () {
+
+    var LargestPrimeFactor = function (number) {
+      var LargestPrimeFactor = [];
+      if (number % 2 !== 0) {
+        return "not a composite number" ;
+      } else {
+        for (var i = 2; i <= number/i; i++) {
+          while(number % i === 0) {
+            number = number/i;
+            LargestPrimeFactor.push(i);
+          }
+        }
+      }
+      return _.reduce(LargestPrimeFactor, function(prev,curr) {
+        return prev > curr ? prev: curr;
+      });
+    }
+
+    expect(LargestPrimeFactor(72)).toBe(3);
+    expect(LargestPrimeFactor(101)).toBe("not a composite number");
   
   });
 
-  it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
+  // it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
     
-  });
+  // });
 
-  it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
+  // it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
       
     
-  });
+  // });
 
-  it("should find the difference between the sum of the squares and the square of the sums", function () {
+  // it("should find the difference between the sum of the squares and the square of the sums", function () {
     
-  });
+  // });
 
-  it("should find the 10001st prime", function () {
+  // it("should find the 10001st prime", function () {
 
-  });
-  */
+  // });
+  
 });
