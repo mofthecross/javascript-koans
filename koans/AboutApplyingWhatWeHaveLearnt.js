@@ -135,24 +135,20 @@ describe("About Applying What We Have Learnt", function() {
       return num.toString() === num.toString().split("").reverse().join("")
     }
 
-    var largestPalindrome = function() {
-      var result, product;
-      for (var i = 999; i > 99; i--) {
-        if (result) {
-          break;
-        } else {
-          for (var j = 999; j > 99; j--) {
-          product = j * i;
-          if (isPalindrome(product)) {
-            result = product;
-            break;
-          }
+   var largestPalindrome = function () {
+    var result, product; palindromes = [];
+    for (var i = 999; i > 99; i--) {
+      for (var j = 999; j > 99; j--) {
+        product = j * i;
+        if (isPalindrome(product) && product.toString().length === 6) {
+          palindromes.push(product);
         }
       }
-    } return result;
-    }
+    } 
+    return _.max(palindromes);
+  }
     
-    expect(largestPalindrome()).toBe(580085)
+  expect(largestPalindrome()).toBe(906609);
 
   });
 
