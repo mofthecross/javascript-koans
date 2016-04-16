@@ -110,7 +110,7 @@ describe("About Applying What We Have Learnt", function() {
   /* UNCOMMENT FOR ADVANCED */
   
   it("should find the largest prime factor of a composite number", function () {
-    
+
     var LargestPrimeFactor = function (number) {
       var LargestPrimeFactor = [];
       for (var i = 2; i <= number; i++) {
@@ -131,26 +131,28 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
 
-    // var LargestPalindrome = function(a,b) {
-    //   if(a.toString().length === 3 && b.toString().length === 3) {
-    //     var product = a * b;
-        
-    //     var arrayofproducts = _.range(1, product).reverse();
-    //     var result = 0
+    var isPalindrome = function(num) {
+      return num.toString() === num.toString().split("").reverse().join("")
+    }
 
-    //     return _.reduce(arrayofproducts, function(prev, curr) {
-    //       if (prev) {
-    //         if (curr.toString() === curr.toString().split("").reverse().join()) {
-    //           result = curr;
-    //           prev = false;
-    //         }
-    //       }
-    //     }, true)
-    //     return result;
-    //   }
-    // }
+    var largestPalindrome = function() {
+      var result, product;
+      for (var i = 999; i > 99; i--) {
+        if (result) {
+          break;
+        } else {
+          for (var j = 999; j > 99; j--) {
+          product = j * i;
+          if (isPalindrome(product)) {
+            result = product;
+            break;
+          }
+        }
+      }
+    } return result;
+    }
     
-    // expect(LargestPalindrome(100,200)).toBe(111111)
+    expect(largestPalindrome()).toBe(580085)
 
   });
 
