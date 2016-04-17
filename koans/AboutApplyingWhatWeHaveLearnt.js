@@ -158,31 +158,50 @@ describe("About Applying What We Have Learnt", function() {
 
   // });
 
+  [0,1,2,3,4,5]
+
+
+
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
 
 
-  function smallestdivisible() {
-    var divisibles = [20,19,18,17,16,15,14,13,12,11];
+    function smallestdivisible() {
+      var divisibles = [20,19,18,17,16,15,14,13,12,11];
 
-    for (var i = 20; true; i = i + 20) {
-      if ( _.every(divisibles, function(divisible) {
-        return i % divisible === 0; 
-      })) {
-        return i;
+      for (var i = 20; true; i = i + 20) {
+        if ( _.every(divisibles, function(divisible) {
+          return i % divisible === 0; 
+        })) {
+          return i;
+        }
       }
     }
-  }
 
-  expect(smallestdivisible()).toBe(232792560);
-    
-  });
+    expect(smallestdivisible()).toBe(232792560);
+      
+    });
 
   // it("should find the difference between the sum of the squares and the square of the sums", function () {
     
   // });
 
-  // it("should find the 10001st prime", function () {
+  it("should find the 10001st prime", function () {
 
-  // });
+    function findprime(num) {
+      var primes = [2];
+      for (var i = 2; primes.length <= num; i++ ) {
+        if ( _.every(primes, function(prime) {
+          return i % prime !== 0;
+        })) {
+          primes.push(i);
+        }
+      }
+       return primes[num-1]//_.last(primes);
+    }
+
+  expect(findprime(10001)).toBe(104743);
+  expect(findprime(1000)).toBe(7919) //https://primes.utm.edu/lists/small/1000.txt
+
+  });
   
 });
