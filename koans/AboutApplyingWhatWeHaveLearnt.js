@@ -37,7 +37,6 @@ describe("About Applying What We Have Learnt", function() {
       var productsICanEat = [];
 
       /* solve using filter() & all() / any() */
-
       productsICanEat = _(products).chain()
               .filter(function(product) {
                 return !product.containsNuts })
@@ -77,7 +76,7 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   /*********************************************************************************/
-   it("should count the ingredient occurrence (imperative)", function () {
+  it("should count the ingredient occurrence (imperative)", function () {
     var ingredientCount = { "{ingredient name}": 0 };
 
     for (i = 0; i < products.length; i+=1) {
@@ -110,7 +109,6 @@ describe("About Applying What We Have Learnt", function() {
   /* UNCOMMENT FOR ADVANCED */
   
   it("should find the largest prime factor of a composite number", function () {
-
     var LargestPrimeFactor = function (number) {
       var LargestPrimeFactor = [];
       for (var i = 2; i <= number; i++) {
@@ -154,7 +152,6 @@ describe("About Applying What We Have Learnt", function() {
 
     function smallestdivisible() {
       var divisibles = [20,19,18,17,16,15,14,13,12,11];
-
       for (var i = 20; true; i = i + 20) {
         if ( _.every(divisibles, function(divisible) {
           return i % divisible === 0; 
