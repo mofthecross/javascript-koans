@@ -125,45 +125,32 @@ describe("About Applying What We Have Learnt", function() {
         return _.max(LargestPrimeFactor);
       }
     }
-    //expect(LargestPrimeFactor(10986232)).toBe(8747);
-    expect(LargestPrimeFactor(36)).toBe(3);
+
+  //expect(LargestPrimeFactor(10986232)).toBe(8747);
+  expect(LargestPrimeFactor(36)).toBe(3);
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
 
     var isPalindrome = function(num) {
-      return num.toString() === num.toString().split("").reverse().join("")
-    }
-
-   var largestPalindrome = function () {
-    var result, product; palindromes = [];
-    for (var i = 999; i > 99; i--) {
-      for (var j = 999; j > 99; j--) {
-        product = j * i;
-        if (isPalindrome(product) && product.toString().length === 6) {
-          palindromes.push(product);
+     return num.toString() === num.toString().split("").reverse().join("");
+   }
+    var largestPalindrome = function () {
+      var result, product; palindromes = [];
+      for (var i = 999; i > 99; i--) {
+        for (var j = 999; j > 99; j--) {
+          product = j * i;
+          if (isPalindrome(product) && product.toString().length === 6) {
+            palindromes.push(product);
+          }
         }
-      }
-    } 
-    return _.max(palindromes);
-  }
-    
+      } 
+      return _.max(palindromes);
+    }  
   expect(largestPalindrome()).toBe(906609);
-
   });
 
-  // it("should find the largest number of N digits which contains 3 multiples of 5 and 5 multiples of 3", function () {
-
-
-
-  // });
-
-  [0,1,2,3,4,5]
-
-
-
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-
 
     function smallestdivisible() {
       var divisibles = [20,19,18,17,16,15,14,13,12,11];
@@ -176,14 +163,25 @@ describe("About Applying What We Have Learnt", function() {
         }
       }
     }
+  expect(smallestdivisible()).toBe(232792560);
+  });
 
-    expect(smallestdivisible()).toBe(232792560);
-      
-    });
+  it("should find the difference between the sum of the squares and the square of the sums", function () {
 
-  // it("should find the difference between the sum of the squares and the square of the sums", function () {
-    
-  // });
+    function sumAndSqDifference(num) {
+      var range = _.range(num + 1)
+      var sumOfSq = _.reduce(range, function(prev, curr) {
+        return prev + (curr * curr); 
+      });
+      var sum = _.reduce(range, function(prev, curr) {
+        return prev + curr;
+      });
+      return (sum * sum) - sumOfSq;
+    }
+  // expect(sumOfSq(4)).toBe(30);
+  // expect(SqOfsum(10)).toBe(3025);
+  expect(sumAndSqDifference(10)).toBe(2640);
+  });
 
   it("should find the 10001st prime", function () {
 
@@ -196,12 +194,10 @@ describe("About Applying What We Have Learnt", function() {
           primes.push(i);
         }
       }
-       return primes[num-1]//_.last(primes);
+       return primes[num-1];//_.last(primes);
     }
-
   expect(findprime(10001)).toBe(104743);
-  expect(findprime(1000)).toBe(7919) //https://primes.utm.edu/lists/small/1000.txt
-
+  expect(findprime(1000)).toBe(7919);//https://primes.utm.edu/lists/small/1000.txt
   });
   
 });
