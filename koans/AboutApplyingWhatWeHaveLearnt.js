@@ -152,10 +152,30 @@ describe("About Applying What We Have Learnt", function() {
 
   });
 
-  // it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-      
-    
+  // it("should find the largest number of N digits which contains 3 multiples of 5 and 5 multiples of 3", function () {
+
+
+
   // });
+
+  it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
+
+
+  function smallestdivisible() {
+    var divisibles = [20,19,18,17,16,15,14,13,12,11];
+
+    for (var i = 20; true; i = i + 20) {
+      if ( _.every(divisibles, function(divisible) {
+        return i % divisible === 0; 
+      })) {
+        return i;
+      }
+    }
+  }
+
+  expect(smallestdivisible()).toBe(232792560);
+    
+  });
 
   // it("should find the difference between the sum of the squares and the square of the sums", function () {
     
